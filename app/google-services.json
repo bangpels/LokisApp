@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1076326332359",
+    "firebase_url": "https://lokis-project-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "lokis-project",
+    "storage_bucket": "lokis-project.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1076326332359:android:327b10e2148c41d79acbe2",
+        "android_client_info": {
+          "package_name": "com.lokis"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1076326332359-arui3sgi7dcsmrcmcgdnk3qo61js8cap.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.lokis",
+            "certificate_hash": "1173742f63da4c0417b05796ae095c3300d44c0e"
+          }
+        },
+        {
+          "client_id": "1076326332359-3kbiqph63d1gdkktlho8ke68c8r0hgm3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBb5QesSS48KdKCS23QHdFFrkecgM_XFbA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1076326332359-3kbiqph63d1gdkktlho8ke68c8r0hgm3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
