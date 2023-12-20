@@ -54,7 +54,6 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val btnSearch: ImageView = view.findViewById(R.id.btnsearch)
-        //val btnRekomendasi : TextView = view.findViewById(R.id.btnLihatSemuaRekomendasi)
         val nameUser: TextView = view.findViewById(R.id.username)
         val btnPosition: LinearLayout = view.findViewById(R.id.btn_location)
         auth = FirebaseAuth.getInstance()
@@ -74,11 +73,11 @@ class HomeFragment : Fragment() {
         rv_Rekomendasi.layoutManager = LinearLayoutManager(activity)
         rv_Rekomendasi.adapter = adapter
         homeViewModel.setLocationRekomendasi()
-        homeViewModel.getLocationRekomendasi().observe(viewLifecycleOwner, {
-            if (it!=null) {
+        homeViewModel.getLocationRekomendasi().observe(viewLifecycleOwner) {
+            if (it != null) {
                 adapter.setList(it)
             }
-        })
+        }
 
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(requireActivity())
 

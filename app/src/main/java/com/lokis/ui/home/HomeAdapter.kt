@@ -21,7 +21,7 @@ import java.util.Arrays
 
 class HomeAdapter : RecyclerView.Adapter<HomeAdapter.MyViewHolder>() {
 
-    private val limit = 3
+    private val limit = 100
     private val list = ArrayList<DataTravel>()
     var placeClient: PlacesClient? = null
 
