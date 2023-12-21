@@ -45,5 +45,10 @@
     <string name="NamaWisata">Nama Tempat Wisata</string>
     <string name="rekomendasi_wisata_buat_kamu">Rekomendasi Wisata Buat Kamu</string>
     <string name="lihat_semua">Lihat Semua</string>
+    <string name="detail_wisata">Detail Wisata</string>
+    <string name="name">Name</string>
+    <string name="rating">Rating</string>
+    <string name="description">Deskripsi</string>
+    <string name="masukkan_wisata_yang_anda_cari">Masukan Wisata Yang Anda Dicari</string>
 
 </resources>

@@ -171,6 +171,16 @@
             app:layout_constraintTop_toBottomOf="@id/ll_2"
             tools:listitem="@layout/card_item" />
 
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rv_rekomendasi"
+            android:visibility="gone"/>
+
         <LinearLayout
             android:id="@+id/ll_3"
             android:layout_width="match_parent"

@@ -5,6 +5,7 @@ package com.lokis.ui.home
 import android.Manifest
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Geocoder
 import android.location.LocationManager
@@ -31,6 +32,8 @@ import com.google.android.gms.location.LocationResult
 import com.google.android.gms.location.LocationServices
 import com.google.firebase.auth.FirebaseAuth
 import com.lokis.R
+import com.lokis.model.DataTravel
+import com.lokis.ui.detail.DetailActivity
 import java.util.Locale
 
 class HomeFragment : Fragment() {
@@ -49,7 +52,7 @@ class HomeFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
-    @SuppressLint("SetTextI18n")
+    @SuppressLint("SetTextI18n", "NotifyDataSetChanged")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -62,6 +65,19 @@ class HomeFragment : Fragment() {
         nameUser.text = "Hello, "+ user?.displayName
 
         adapter = HomeAdapter()
+        adapter.notifyDataSetChanged()
+
+        adapter.setOnItemClickCallback(object : HomeAdapter.OnItemClickCallback{
+            override fun onItemClicked(home: DataTravel) {
+                val intent = Intent(requireContext(), DetailActivity::class.java).apply {
+                    putExtra(DetailActivity.EXTRA_NAME, home.name)
+                    putExtra(DetailActivity.EXTRA_DESCRIPTION, home.deskripsi)
+                    putExtra(DetailActivity.EXTRA_URL, home.url)
+                    putExtra(DetailActivity.EXTRA_RATING, home.rating)
+                }
+                startActivity(intent)
+            }
+        })
 
         btnSearch.setOnClickListener {
             findNavController().navigate(R.id.action_navigation_home_to_navigation_search)
@@ -78,6 +94,8 @@ class HomeFragment : Fragment() {
                 adapter.setList(it)
             }
         }
+
+
 
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(requireActivity())
 

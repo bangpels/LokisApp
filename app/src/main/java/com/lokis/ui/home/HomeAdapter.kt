@@ -15,16 +15,22 @@ import com.google.android.libraries.places.api.net.FetchPhotoRequest
 import com.google.android.libraries.places.api.net.FetchPlaceRequest
 import com.google.android.libraries.places.api.net.PlacesClient
 import com.lokis.R
+import com.lokis.model.DataDetail
 import com.lokis.model.DataTravel
 import java.util.ArrayList
 import java.util.Arrays
 
 class HomeAdapter : RecyclerView.Adapter<HomeAdapter.MyViewHolder>() {
 
-    private val limit = 100
+    private val limit = 20
     private val list = ArrayList<DataTravel>()
     var placeClient: PlacesClient? = null
 
+    private var onItemClickCallback: OnItemClickCallback? = null
+
+    fun setOnItemClickCallback (onItemClickCallback: OnItemClickCallback){
+        this.onItemClickCallback = onItemClickCallback
+    }
     @SuppressLint("NotifyDataSetChanged")
     fun setList(dataTravel: ArrayList<DataTravel>){
         list.clear()
@@ -33,7 +39,6 @@ class HomeAdapter : RecyclerView.Adapter<HomeAdapter.MyViewHolder>() {
     }
 
     inner class MyViewHolder(val view: View): RecyclerView.ViewHolder(view) {
-
         fun bind(home: DataTravel) {
             val name = view.findViewById<TextView>(R.id.tvNameWisata)
             val city = view.findViewById<TextView>(R.id.tvCity)
@@ -43,8 +48,8 @@ class HomeAdapter : RecyclerView.Adapter<HomeAdapter.MyViewHolder>() {
             name.text = home.name
             city.text = home.city
 
-            Glide.with(itemView.context)
-                .load("https://picsum.photos/200?random=30")
+            Glide.with(itemView)
+                .load(home.url)
                 .transform(RoundedCorners(20))
                 .apply(
                     RequestOptions.placeholderOf(R.drawable.ic_loader)
@@ -93,5 +98,9 @@ class HomeAdapter : RecyclerView.Adapter<HomeAdapter.MyViewHolder>() {
         } else {
             list.size
         }
+    }
+
+    interface OnItemClickCallback{
+        fun onItemClicked(home: DataTravel)
     }
 }
